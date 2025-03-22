@@ -1,11 +1,19 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ReactNode } from "react";
 
-type VideoControlProps = ComponentProps<"video">;
+type VideoControlProps = Omit<ComponentProps<"video">, 'src'> & {
+  sources?: string[];
+  fallback?: ReactNode;
+};
 
-export function VideoSource({ src, ...props }: VideoControlProps) {
+export function VideoSource({ sources, fallback, ...props }: VideoControlProps) {
   return (
     <video className="size-full object-cover" {...props}>
-      <source src={src} />
+      {
+        sources?.map((src, index) => (
+          <source key={index} src={src} />
+        ))
+      }
+      {fallback}
     </video>
   );
 }

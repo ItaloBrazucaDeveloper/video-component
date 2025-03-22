@@ -2,7 +2,7 @@ import { tv, VariantProps } from "tailwind-variants";
 
 const videoTimeline = tv({
   slots: {
-    container: 'group h-1.5 md:h-2 hover:h-2.25 w-full transition-all',
+    container: 'absolute bottom-15 row-span-1 group h-1.5 md:h-2 hover:h-2.25 w-full transition-all',
     bar: 'ring ring-neutral-900/30 rounded-xl bg-neutral-600/70 size-full',
     rangeBar: 'relative rounded-xl h-full w-20',
     currentTime: 'absolute z-50 bg-rose-500 size-full rounded-xl',
@@ -17,7 +17,7 @@ const videoTimeline = tv({
 
 type VideoTimelineProps = VariantProps<typeof videoTimeline>;
 
-export function VideoTimeline({  }: VideoTimelineProps) {
+export function VideoTimeline({ }: VideoTimelineProps) {
   const {
     container,
     bar,
@@ -25,7 +25,7 @@ export function VideoTimeline({  }: VideoTimelineProps) {
     rangeBar,
     pointCursor,
     buffer
-  } = videoTimeline({ });
+  } = videoTimeline();
 
   return (
     <div className={container()}>

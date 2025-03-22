@@ -1,6 +1,10 @@
 import { createContext, useContext } from "react";
 
 type VideoContextProps = {
+  isPaused: boolean;
+  isPlayed: boolean;
+  currentTime: boolean;
+  screenMode: 'theater' | 'full-screen' | 'default'
   togglePlayVideo: () => void;
   onChangeVideoPointer: () => void;
 };
